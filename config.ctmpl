@@ -17,7 +17,7 @@ config = {
             client: 'mysql',
  	    connection: {
             {{range service "mysql"}}
-    		host     : '{{.ServiceAddress}}',{{end}}
+    		host     : '{{.Address}}',{{end}}
     		user     : 'ghost_user',
     		password : '{{key "mysql/ghost_password"}}',
     		database : 'ghost_db',
