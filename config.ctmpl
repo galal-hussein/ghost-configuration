@@ -11,15 +11,15 @@ config = {
     // When running Ghost in the wild, use the production environment.
     // Configure your URL and mail settings here
     production: {
-        url: 'http://my-ghost-blog.com',
+        url: 'http://hussein.ghost.com',
         mail: {},
         database: {
             client: 'mysql',
  	    connection: {
             {{range service "mysql"}}
     		host     : '{{.ServiceAddress}}',{{end}}
-    		user     : 'admin',
-    		password : '{{key "/v1/kv/mysql/ghost_password"}}',
+    		user     : 'ghost_user',
+    		password : '{{key "mysql/ghost_password"}}',
     		database : 'ghost_db',
     		charset  : 'utf8'
 	    },
